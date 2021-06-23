@@ -45,11 +45,10 @@ const getSalario = (id) => {
     return new Promise(( resolve, reject ) => {
         ( salario )
         ? resolve( salario )
-        : reject(`No existe salario del id: ${id}`)
+        : reject(`No existe salario del empleado ${nombre}`)
     });
 }
 
-const id = 3;
 
 // getEmpleado(id)
 //     .then(empleado => console.log(empleado))
@@ -57,13 +56,24 @@ const id = 3;
 // getSalario(id)
 //     .then(salario => console.log(salario))
 //     .catch(err => console.log(err))
-
-getEmpleado(id)
-    .then(empleado =>{
-        getSalario(id)
-            .then(salario => {
-                console.log('El empleado:', empleado, 'tiene un salario:', salario);
-            })
-            .catch(err => console.log(err))
+// promise Hell
+// getEmpleado(id)
+//     .then(empleado =>{
+    //         getSalario(id)
+    //             .then(salario => {
+        //                 console.log('El empleado:', empleado, 'tiene un salario:', salario);
+        //             })
+        //             .catch(err => console.log(err))
+        //     })
+        //     .catch(err => console.log(err))
+        
+        const id = 2;
+        let nombre;
+        
+        getEmpleado(id)
+        .then( empleado => {
+            nombre = empleado;
+        return getSalario(id)
     })
-    .catch(err => console.log(err))
+    .then(salario => console.log(`El empleado ${nombre} tiene un salario de ${salario}`))
+    .catch( err => console.log(err))
