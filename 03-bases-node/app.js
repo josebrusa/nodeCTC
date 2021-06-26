@@ -4,7 +4,7 @@ const argv = require('./config/yargs')
 
 console.clear();
 
-crearArchivo( argv.b, argv.l )
-    .then( nombreArchivo => console.log( nombreArchivo.white.bold.bgBrightRed, 'creado'))
+crearArchivo( argv.b, argv.l, argv.h )
+    .then( nombreArchivo => console.log( nombreArchivo.america.bgCyan, 'creado'))
     .catch( err => console.log( err ))
 
