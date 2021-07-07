@@ -32,7 +32,7 @@ class Tareas {
         listadoCompleto(){
             this.listadoArr.forEach( (tarea, i) => {
 
-                const idx = `${i + 1}`.green;
+                const idx = `${i + 1}.`.cyan ;
                 const { desc, completadoEn } = tarea;
 
                 const estado  = (completadoEn)
@@ -41,6 +41,30 @@ class Tareas {
                 console.log(`${ idx } ${ desc} :: ${ estado }`);
 
             });
+        }
+
+        listarPendientesCompletadas( completadas = true ){
+
+            let contador = 0;
+
+            this.listadoArr.forEach( tarea => {
+
+                const { desc, completadoEn } = tarea;
+                const estado = ( completadoEn )
+                                ? 'Completada'.green
+                                : 'Pendiente'.red;
+                if( completadas ){
+                    if( completadoEn ) {
+                        contador += 1;
+                        console.log(`${ (contador + '.').cyan } ${ desc } :: ${ estado } - ${ completadoEn }`);
+                    }
+                } else {
+                    if( !completadoEn ){
+                        contador += 1;
+                        console.log(`${ (contador + '.').cyan } ${ desc } :: ${ estado } - ${ completadoEn }`);
+                    }
+                }
+            })
         }
 }
 
