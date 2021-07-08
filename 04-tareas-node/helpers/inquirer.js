@@ -47,7 +47,6 @@ const inquirerMenu = async () => {
     console.log('=========================\n'.white.bgGreen);
 
     const { opcion } = await inquirer.prompt(preguntas);
-
     return opcion;
 }
 
@@ -93,6 +92,12 @@ const listadoTareasBorrar = async( tareas = []) => {
             name: `${ idx } ${ tarea.desc }`,
         }
     });
+    
+    choices.unshift({
+        value: '0',
+        name: '0.'.cyan + ' Cancelar'
+    });
+
     const preguntas = [
         {
             type: 'list',
@@ -103,6 +108,20 @@ const listadoTareasBorrar = async( tareas = []) => {
     ]
     const { id } = await inquirer.prompt( preguntas )
     return id;
+}
+
+
+const confirmar = async( message ) => {
+
+    const question = [
+        {
+            type: 'confirm',
+            name: 'ok',
+            message
+        }
+    ];
+    const { ok } = await inquirer.prompt( question );
+    return ok;
 }
 
 
@@ -119,5 +138,6 @@ module.exports = {
     inquirerMenu,
     pause,
     leerInput,
-    listadoTareasBorrar
+    listadoTareasBorrar,
+    confirmar
 }
