@@ -11,26 +11,27 @@ const main = async() => {
 
             opt = await inquirerMenu();
 
-            switch( opt ) {
-                case 1:
+                switch( opt ) {
 
-                    const lugar = await leerInput('Ciudad: ');
-                    console.log( lugar );
+                    case 1:
+
+                        const lugar = await leerInput('Ciudad: ');
+                        console.log( lugar );
 
 
 
 
-                    console.log('\nInformacion de la ciudades\n'.cyan);
-                    console.log('Ciudad: ');
-                    console.log('Latitud: ');
-                    console.log('Long: ');
-                    console.log('Temperatura: ');
-                    console.log('Minima: ');
-                    console.log('Maxima: ');
-                break;
-            }
+                        console.log('\nInformacion de la ciudad\n'.cyan);
+                        console.log('Ciudad: ');
+                        console.log('Latitud: ');
+                        console.log('Long: ');
+                        console.log('Temperatura: ');
+                        console.log('Minima: ');
+                        console.log('Maxima: ');
+                    break;
+                }
 
-                if( opt !== 0 ) await pausa();
+            if( opt !== 0 ) await pausa();
 
         } while ( opt !== 0 )
 }
