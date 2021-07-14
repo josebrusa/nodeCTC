@@ -15,9 +15,8 @@ const main = async() => {
 
                     case 1:
 
-                        const lugar = await leerInput('Ciudad: ');
-                        console.log( lugar );
-
+                        const lugar = await leerInput( 'Ciudad: ' );
+                        await busqeudas.ciudad( lugar );
 
 
 
