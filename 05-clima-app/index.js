@@ -1,10 +1,12 @@
+require('dotenv').config();
 
 const { leerInput, inquirerMenu, pausa } = require('./helpers/inquirer');
 const Busquedas = require('./models/busquedas');
 
+
 const main = async() => {
 
-    const busqeudas = new Busquedas();
+    const busquedas = new Busquedas();
     let opt;
 
         do {
@@ -16,7 +18,7 @@ const main = async() => {
                     case 1:
 
                         const lugar = await leerInput( 'Ciudad: ' );
-                        await busqeudas.ciudad( lugar );
+                        await busquedas.ciudad( lugar );
 
 
 

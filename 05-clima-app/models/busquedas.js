@@ -1,10 +1,9 @@
 const axios = require('axios');
 
 
-
 class Busquedas {
 
-    historial = ['Cordoba'];
+    historial = [''];
 
     constructor(){
 
@@ -12,7 +11,7 @@ class Busquedas {
 
     get paramsMapbox(){
         return {
-            'access_token': 'pk.eyJ1Ijoiam9zZWJydXNhIiwiYSI6ImNrcjQwa2w1dDJyNmMycHJ1aDVqbDdyZXYifQ.CjerDcFVaVbYX4qg-lL2sQ',
+            'access_token': process.env.MAPBOX_KEY,
             'limit': 5,
             'language': 'es'
         }
@@ -42,5 +41,3 @@ class Busquedas {
 module.exports = Busquedas;
 
 
-
-// https://api.mapbox.com/geocoding/v5/mapbox.places/Cor.json?access_token=pk.eyJ1Ijoiam9zZWJydXNhIiwiYSI6ImNrcjQwa2w1dDJyNmMycHJ1aDVqbDdyZXYifQ.CjerDcFVaVbYX4qg-lL2sQ&limit=5&language=es
