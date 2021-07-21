@@ -46,7 +46,7 @@ const main = async() => {
 
                     case 2:
 
-                        busquedas.historial.forEach(( lugar, i ) => {
+                        busquedas.historialCapitalizado.forEach(( lugar, i ) => {
                             const idx = `${i + 1}.`.cyan;
                             console.log(`${ idx } ${ lugar }`);
                         })
