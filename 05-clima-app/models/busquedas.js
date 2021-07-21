@@ -25,6 +25,7 @@ class Busquedas {
                 baseURL: `https://api.mapbox.com/geocoding/v5/mapbox.places/${ lugar }.json`,
                 params: this.paramsMapbox
             });
+
             const resp = await intance.get();
             return resp.data.features.map( lugar => ({
                 id: lugar.id,
