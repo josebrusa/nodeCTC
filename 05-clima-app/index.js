@@ -18,21 +18,26 @@ const main = async() => {
                     case 1:
                         // Mostrar mensaje
                         const termino = await leerInput( 'Ciudad: ' );
+
                         // Buscar  los lugares
                         const lugares = await busquedas.ciudad( termino );
+
                         // Seleccionar lugar
                         const id = await listarLugares( lugares );
                         const lugarSelect = lugares.find( l => l.id === id );
 
                         // Clima
+                        const clima = await busquedas.climaLugar( lugarSelect.lat, lugarSelect.lng );
 
-                        console.log('\nInformacion de la ciudad\n'.cyan);
-                        console.log('Ciudad: ', lugarSelect.nombre );
+                        console.clear();
+                        console.log('\nInformacion de la ciudad\n'.green);
+                        console.log('Ciudad: ', lugarSelect.nombre.cyan );
                         console.log('Lat: ', lugarSelect.lat );
                         console.log('Lng: ', lugarSelect.lng );
-                        console.log('Temperatura: ');
-                        console.log('Minima: ');
-                        console.log('Maxima: ');
+                        console.log('Temperatura: ', clima.temp);
+                        console.log('Minima: ', clima.min);
+                        console.log('Maxima: ', clima.max);
+                        console.log('El clima se encuentra:', clima.desc.cyan);
                     break;
                 }
 
